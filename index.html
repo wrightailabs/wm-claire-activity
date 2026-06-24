@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Claire Activity Log — Weather Masters</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f1f5f9;color:#111827}
+    .header{background:linear-gradient(135deg,#1E2A5E 0%,#162040 100%);padding:32px 24px;text-align:center;color:#fff}
+    .header .eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,.5);margin-bottom:8px}
+    .header h1{font-size:26px;font-weight:800;margin-bottom:6px}
+    .header .sub{font-size:13px;color:rgba(255,255,255,.65)}
+    .live-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:700;margin-top:12px}
+    .live-dot{width:8px;height:8px;border-radius:50%;background:#34d399;animation:pulse 1.5s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+    .container{max-width:1100px;margin:0 auto;padding:24px 16px}
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:28px}
+    .stat{background:#fff;border-radius:12px;padding:20px;box-shadow:0 1px 4px rgba(0,0,0,.07);text-align:center}
+    .stat .val{font-size:28px;font-weight:800;margin-bottom:4px}
+    .stat .lbl{font-size:12px;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+    .stat.red .val{color:#dc2626}
+    .stat.blue .val{color:#1a56db}
+    .stat.green .val{color:#0e9f6e}
+    .stat.orange .val{color:#d97706}
+    .section{background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(0,0,0,.07);margin-bottom:24px;overflow:hidden}
+    .section-header{padding:16px 20px;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;gap:10px}
+    .section-header h2{font-size:16px;font-weight:700}
+    .section-header .badge{background:#fee2e2;color:#dc2626;border-radius:20px;padding:2px 10px;font-size:12px;font-weight:700}
+    .section-header .badge.blue{background:#e8f0fe;color:#1a56db}
+    table{width:100%;border-collapse:collapse}
+    th{background:#f9fafb;padding:10px 16px;text-align:left;font-size:12px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid #e5e7eb}
+    td{padding:11px 16px;border-bottom:1px solid #f3f4f6;font-size:14px;vertical-align:top}
+    tr:last-child td{border-bottom:none}
+    tr:hover td{background:#f9fafb}
+    .footer{text-align:center;padding:20px;color:#9ca3af;font-size:12px}
+    @media(max-width:640px){
+      .header h1{font-size:20px}
+      th,td{padding:8px 10px;font-size:13px}
+    }
+  </style>
+</head>
+<body>
+<div class="header">
+  <div class="eyebrow">Wright AI Labs</div>
+  <h1>Claire AI — Activity Log</h1>
+  <div class="sub">Collections Calls · Estimate Follow-Ups · Weather Masters of Georgia</div>
+  <div class="live-badge"><span class="live-dot"></span> Live Data</div>
+</div>
+
+<div class="container">
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat red">
+      <div class="val">16</div>
+      <div class="lbl">Collections Targets</div>
+    </div>
+    <div class="stat orange">
+      <div class="val">$11,183</div>
+      <div class="lbl">Total Chased</div>
+    </div>
+    <div class="stat blue">
+      <div class="val">53</div>
+      <div class="lbl">Estimate Follow-Ups</div>
+    </div>
+    <div class="stat green">
+      <div class="val">69</div>
+      <div class="lbl">Total Customers Called</div>
+    </div>
+  </div>
+
+  <!-- Collections -->
+  <div class="section">
+    <div class="section-header">
+      <span>💰</span>
+      <h2>Collections Calls</h2>
+      <span class="badge">16 customers · $11,183 chased</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Customer</th>
+          <th>Amount Due</th>
+          <th>Days Out</th>
+          <th>Job</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr>
+      <td>2026-06-17</td>
+      <td><strong>Saj Johnson</strong></td>
+      <td style="color:#dc2626;font-weight:700;">$4,456.60</td>
+      <td>12d</td>
+      <td style="color:#6b7280;font-size:13px;">Helper Hand Labor</td>
+    </tr>
+    <tr>
+      <td>2026-06-15</td>
+      <td><strong>Alva Eddison</strong></td>
+      <td style="color:#dc2626;font-weight:700;">$1,608.45</td>
+      <td>11d</td>
+      <td style="color:#6b7280;font-size:13px;">Commercial service call priced per hour</td>
+    </tr>
+    <tr>
+      <td>2026-06-15</td>
+      <td><strong>Tracy Aaron Excellence</strong></td>
+      <td style="color:#dc2626;font-weight:700;">$1,021.44</td>
+      <td>12d</td>
+      <td style="color:#6b7280;font-size:13px;">Trip charge commercial</td>
+    </tr>
+    <tr>
+      <td>2026-06-15</td>
+      <td><strong>Zach Gwinn</strong></td>
+      <td style="color:#d97706;font-weight:700;">$975.00</td>
+      <td>16d</td>
+      <td style="color:#6b7280;font-size:13px;">1461 Great shoals dr - Service call -</td>
+    </tr>
+    <tr>
+      <td>2026-06-16</td>
+      <td><strong>Tracy Aaron Excellence</strong></td>
+      <td style="color:#d97706;font-weight:700;">$466.00</td>
+      <td>10d</td>
+      <td style="color:#6b7280;font-size:13px;">Commercial Refrigeration labor Per Hour</td>
+    </tr>
+    <tr>
+      <td>2026-06-15</td>
+      <td><strong>Beverly Whitaker</strong></td>
+      <td style="color:#d97706;font-weight:700;">$370.14</td>
+      <td>16d</td>
+      <td style="color:#6b7280;font-size:13px;">Condenser Fan Motor Replacement</td>
+    </tr>
+    <tr>
+      <td>2026-06-16</td>
+      <td><strong>Houston Kirkland</strong></td>
+      <td style="color:#d97706;font-weight:700;">$364.00</td>
+      <td>10d</td>
+      <td style="color:#6b7280;font-size:13px;">Service Call priced per hour- $99 Ad</td>
+    </tr>
+    <tr>
+      <td>2026-06-15</td>
+      <td><strong>Arnold Scott</strong></td>
+      <td style="color:#d97706;font-weight:700;">$300.00</td>
+      <td>12d</td>
+      <td style="color:#6b7280;font-size:13px;">Service call</td>
+    </tr>
+    <tr>
+      <td>2026-06-17</td>
+      <td><strong>RGI RGI</strong></td>
+      <td style="color:#6b7280;font-weight:700;">$265.00</td>
+      <td>14d</td>
+      <td style="color:#6b7280;font-size:13px;">Service call</td>
+    </tr>
+    <tr>
+      <td>2026-06-16</td>
+      <td><strong>Howard Myers</strong></td>
+      <td style="color:#6b7280;font-weight:700;">$258.00</td>
+      <td>8d</td>
+      <td style="color:#6b7280;font-size:13px;">Commercial Refrigeration labor Per Hour</td>
+    </tr>
+    <tr>
+      <td>2026-06-16</td>
+      <td><strong>Derek Turner</strong></td>
+      <td style="color:#6b7280;font-weight:700;">$250.00</td>
+      <td>150d</td>
+      <td style="color:#6b7280;font-size:13px;">Running a new thermostat wire</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Josh Lehr</strong></td>
+      <td style="color:#6b7280;font-weight:700;">$248.00</td>
+      <td>8d</td>
+      <td style="color:#6b7280;font-size:13px;">ecobee3 lite Smart Thermostat</td>
+    </tr>
+    <tr>
+      <td>2026-06-16</td>
+      <td><strong>Charles Wall</strong></td>
+      <td style="color:#6b7280;font-weight:700;">$150.00</td>
+      <td>10d</td>
+      <td style="color:#6b7280;font-size:13px;">Service call - Priced per Hour</td>
+    </tr>
+    <tr>
+      <td>2026-06-13</td>
+      <td><strong>Becca Webb</strong></td>
+      <td style="color:#6b7280;font-weight:700;">$150.00</td>
+      <td>269d</td>
+      <td style="color:#6b7280;font-size:13px;">Service for Return AIr</td>
+    </tr>
+    <tr>
+      <td>2026-06-15</td>
+      <td><strong>Houston Kirkland</strong></td>
+      <td style="color:#6b7280;font-weight:700;">$150.00</td>
+      <td>17d</td>
+      <td style="color:#6b7280;font-size:13px;">Service call</td>
+    </tr>
+    <tr>
+      <td>2026-06-15</td>
+      <td><strong>Shariff Martin</strong></td>
+      <td style="color:#6b7280;font-weight:700;">$150.00</td>
+      <td>17d</td>
+      <td style="color:#6b7280;font-size:13px;">Service call</td>
+    </tr></tbody>
+    </table>
+  </div>
+
+  <!-- Pipeline -->
+  <div class="section">
+    <div class="section-header">
+      <span>📋</span>
+      <h2>Estimate Follow-Up Calls</h2>
+      <span class="badge blue">53 customers contacted</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Customer</th>
+          <th>Estimate / Job</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr>
+      <td>2026-06-16</td>
+      <td><strong>Hanré Swanepoel</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Goodman 60K BTU 80% Furnace 3 Ton Drive (for 2 Ton</td>
+      <td style="color:#6b7280;font-size:13px;">4486 Cardiff Court Northeast, Roswell, G</td>
+    </tr>
+    <tr>
+      <td>2026-06-16</td>
+      <td><strong>Kendall Gay</strong></td>
+      <td style="color:#6b7280;font-size:13px;">3.5 Ton Goodman 14.3 SEER2 AC</td>
+      <td style="color:#6b7280;font-size:13px;">120 Lakeview Trail, Hiram, GA, 30141</td>
+    </tr>
+    <tr>
+      <td>2026-06-15</td>
+      <td><strong>High Ventures Paul Valdes</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">422 Cassville Rd, Cartersville, GA, 3012</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Arjan Mongia</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Service call</td>
+      <td style="color:#6b7280;font-size:13px;">390 17th St NW, Atlanta, GA, 30363</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Dennis Nix</strong></td>
+      <td style="color:#6b7280;font-size:13px;">2.5 ton carrier AC 15 seer</td>
+      <td style="color:#6b7280;font-size:13px;">519 Toonigh Road, Woodstock, GA, 30188</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Arjan Mongia</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Service call</td>
+      <td style="color:#6b7280;font-size:13px;">390 17th St NW, Atlanta, GA, 30363</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Nathan Ooziel</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">5132 N Woodbridge Trail, Stone Mountain,</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Martin Wright</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Service call</td>
+      <td style="color:#6b7280;font-size:13px;">409 Mill Run Dr, Bremen, GA, 30110</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>david moss</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">1203 Parkwood chase, acworth, GA, 30102</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Andre Lima</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Head Tech Labor</td>
+      <td style="color:#6b7280;font-size:13px;">3922 Robin Ct, Acworth, GA, 30101</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Jeff Cameron</strong></td>
+      <td style="color:#6b7280;font-size:13px;">1.5 Ton Goodman SEER2 AC</td>
+      <td style="color:#6b7280;font-size:13px;">210 River Landing Drive, Roswell, GA, 30</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Stormy.</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Install Needed For Full Gas Systems with ductwork </td>
+      <td style="color:#6b7280;font-size:13px;">178 Seals Drive, Dallas, GA, 30157</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Paul Harris</strong></td>
+      <td style="color:#6b7280;font-size:13px;">4 Ton SEER2 Goodman Heat Pump System</td>
+      <td style="color:#6b7280;font-size:13px;">185 Heaton Dr, Covington, GA, 30016</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Kenny Howard</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Service call</td>
+      <td style="color:#6b7280;font-size:13px;">2705 Midway Rd, Decatur, GA, 30030</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Charlotte Prince</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">106 Dumaine St, Dallas, GA, 30157</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Charlotte Prince</strong></td>
+      <td style="color:#6b7280;font-size:13px;">40+5 Run capacitor</td>
+      <td style="color:#6b7280;font-size:13px;">106 Dumaine St, Dallas, GA, 30157</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Sonia (Sunny) Dolberg</strong></td>
+      <td style="color:#6b7280;font-size:13px;">3 Ton Heat Pump System Installment - Finish</td>
+      <td style="color:#6b7280;font-size:13px;">4913 Longview Walk, Decatur, GA, 30035</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Dan Forsyth</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Service call</td>
+      <td style="color:#6b7280;font-size:13px;">2775 Okawana Ct N E, Marietta, GA, 30068</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Richard Crowder</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Service Call - $99</td>
+      <td style="color:#6b7280;font-size:13px;">248 Silverthorn Way, Cedartown, GA, 3012</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Reverend James King</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">1258 Tumblerock Ct, Loganville, GA, 3005</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Jana Cauthen</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Free Estimate.</td>
+      <td style="color:#6b7280;font-size:13px;">5174 Buchanan Highway, Buchanan, GA, 301</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Travis Orszulak</strong></td>
+      <td style="color:#6b7280;font-size:13px;">goodman 6-ton package unit evaporator coil</td>
+      <td style="color:#6b7280;font-size:13px;">1075 Buckhead Crossing, Woodstock, GA, 3</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Carl Hutton</strong></td>
+      <td style="color:#6b7280;font-size:13px;">3 Ton Heat Pump System Installment</td>
+      <td style="color:#6b7280;font-size:13px;">144 Country Cottage Circle, Carrollton, </td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Christen Barton</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">160 Pooles Bend Ct, Hiram, GA, 30141</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>RGI RGI</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">732 Chadsford Road, Marietta, GA, 30067</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>joshua song</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">304 bellmont dr, cartersville, GA</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Ruiz Randall</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Visit #5</td>
+      <td style="color:#6b7280;font-size:13px;">664 Gold Valley Pass, Canton, GA, 30114</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Alva Eddison</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">4500 W Village Pl, Smyrna, GA, 30080</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Justin Grigsby</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Commercial service call priced per hour</td>
+      <td style="color:#6b7280;font-size:13px;">6925 Discovery Boulevard, Mableton, GA, </td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>RGI RGI</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Insurance HVAC Restoration Scope - 1710 Summit Gle</td>
+      <td style="color:#6b7280;font-size:13px;">1710 Summit Glen Lane Northeast, Atlanta</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Sara Hegel</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Service call</td>
+      <td style="color:#6b7280;font-size:13px;">140 Haddock Pt, Brooks, GA, 30205</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Brian R. Fretwell</strong></td>
+      <td style="color:#6b7280;font-size:13px;">2 Ton SEER2 Goodman Air Handler</td>
+      <td style="color:#6b7280;font-size:13px;">3224 Kellogg Creek Rd, Acworth, GA, 3010</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Marielle Gutman</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">2522 Oakrill Rd, Marietta, GA, 30062</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Brian R. Fretwell</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">3224 Kellogg Creek Rd, Acworth, GA, 3010</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Wesley Crist</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Carrier 1-Stage Heat Pump SEER2</td>
+      <td style="color:#6b7280;font-size:13px;">199 Sammy Duke Rd, Whitesburg, GA, 30185</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Tony Hudson</strong></td>
+      <td style="color:#6b7280;font-size:13px;">2 Ton SEER2 Goodman Air Handler</td>
+      <td style="color:#6b7280;font-size:13px;">104 Turtle Cv, Carrollton, GA, 30116</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Tony Hudson</strong></td>
+      <td style="color:#6b7280;font-size:13px;">2 Ton SEER2 Goodman Air Handler</td>
+      <td style="color:#6b7280;font-size:13px;">104 Turtle Cv, Carrollton, GA, 30116</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>RGI RGI</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Insurance HVAC Restoration Scope - 1710 Summit Gle</td>
+      <td style="color:#6b7280;font-size:13px;">1710 Summit Glen Lane Northeast, Atlanta</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Tonia Stevenson</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Install Needed All Electric</td>
+      <td style="color:#6b7280;font-size:13px;">2630 Wanda Woods Road, Cumming, GA, 3004</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Olga Melikyan</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Electric Heat Strip Replacement+Labor (Air Handler</td>
+      <td style="color:#6b7280;font-size:13px;">390 17th St NW, Atlanta, GA, 30363</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Arbor Gate</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">115 Biscayne Drive Northwest, Atlanta, G</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Teri Bogiel</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">2373 Regal Court, Lawrenceville, GA, 300</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Marcus Yancey</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">30188</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Marcus Yancey</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">30188</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Marcus Yancey</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">30188</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Marcus Yancey</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">30188</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Lori Bellville Rafus</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">30041</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Shannon and Andrew Smith</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">5698 Brookstone Walk Northwest, Acworth,</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Toby Buzzard</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">address on file</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Hakim Jones</strong></td>
+      <td style="color:#6b7280;font-size:13px;">HVAC service request</td>
+      <td style="color:#6b7280;font-size:13px;">address on file</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Saj Johnson</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Commercial service call priced per hour</td>
+      <td style="color:#6b7280;font-size:13px;">1300 Ernest W Barrett Pkwy NW, Kennesaw,</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Luda McQullian</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Service call - Priced per Hour</td>
+      <td style="color:#6b7280;font-size:13px;">12020 Crabapple Lake Dr, Roswell, GA, 30</td>
+    </tr>
+    <tr>
+      <td>2026-06-14</td>
+      <td><strong>Jose Luis</strong></td>
+      <td style="color:#6b7280;font-size:13px;">Saturday Service call - Priced per Hour</td>
+      <td style="color:#6b7280;font-size:13px;">5894 Ash Street, Forest Park, GA, 30297</td>
+    </tr></tbody>
+    </table>
+  </div>
+
+</div>
+<div class="footer">Wright AI Labs · Generated June 24, 2026 at 10:12 AM ET</div>
+</body>
+</html>
